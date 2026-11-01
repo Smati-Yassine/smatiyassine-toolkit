@@ -1,0 +1,83 @@
+{
+  "name": "smatiyassine-toolkit",
+  "displayName": "SmatiYassine#Toolkit",
+  "description": "A small set of everyday tools in the VS Code sidebar: a coding-time dashboard and password encryption for the text you're editing.",
+  "version": "1.0.0",
+  "publisher": "smatiyassine",
+  "author": {
+    "name": "Yassine Smati",
+    "url": "https://yassinesmati.vercel.app/"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/Smati-Yassine/smatiyassine-toolkit#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Smati-Yassine/smatiyassine-toolkit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Smati-Yassine/smatiyassine-toolkit/issues"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "encrypt",
+    "decrypt",
+    "aes",
+    "password",
+    "time tracking",
+    "dashboard"
+  ],
+  "main": "./out/extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "smatiyassine-toolkit",
+          "title": "SmatiYassine#Toolkit",
+          "icon": "media/activity-bar.svg"
+        }
+      ]
+    },
+    "views": {
+      "smatiyassine-toolkit": [
+        {
+          "type": "webview",
+          "id": "smatiyassineToolkit.sidebar",
+          "name": "SmatiYassine#Toolkit"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "SmatiYassine#Toolkit",
+      "properties": {
+        "smatiyassineToolkit.dailyGoalHours": {
+          "type": "number",
+          "default": 4,
+          "minimum": 0.5,
+          "maximum": 24,
+          "description": "How many hours of coding a day count as reaching your goal on the dashboard."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package",
+    "publish": "vsce publish"
+  },
+  "devDependencies": {
+    "@types/node": "20.11.30",
+    "@types/vscode": "1.85.0",
+    "@vscode/vsce": "3.2.1",
+    "typescript": "5.4.5"
+  }
+}
